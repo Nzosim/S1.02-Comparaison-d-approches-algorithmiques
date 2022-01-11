@@ -14,14 +14,14 @@ public class ListeTriee{
 	 */
 	public void adjlisT(String chaine){	
 		boolean find = false;
-		int p=0, prec = p;
+		int p=liste.tete(), prec = p;
 		while(!this.liste.finliste(p) && !find){
 			if(this.liste.val(p).compareToIgnoreCase(chaine) <0){
 				this.liste.adjlis(prec, chaine);
 				find = true;
 			}else{
 				prec = p;
-				p++;
+				p = liste.suc(p);
 			}
 		}
 	}
@@ -32,13 +32,13 @@ public class ListeTriee{
 	 */
 	public void suplisT(String chaine){
 		boolean find = false;
-		int p=0;
+		int p=liste.tete();
 		while(!this.liste.finliste(p) && !find){
 			if(this.liste.val(p).compareToIgnoreCase(chaine) == 0){
 				this.liste.suplis(p);;
 				find = true;
 			}else{
-				p++;
+				p = liste.suc(p);
 			}
 		}
 	}
@@ -49,12 +49,12 @@ public class ListeTriee{
 	 */
 	public boolean memlisT(String chaine){
 		boolean res = false;
-		int p=0;
+		int p=liste.tete();
 		while(!this.liste.finliste(p) && !res){
 			if(this.liste.val(p).compareToIgnoreCase(chaine) == 0){
 				res = true;
 			}else{
-				p++;
+				p = liste.suc(p);
 			}
 		}
 		return res;

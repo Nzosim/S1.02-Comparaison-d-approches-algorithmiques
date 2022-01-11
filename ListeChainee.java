@@ -27,7 +27,7 @@ public class ListeChainee implements Liste{
 	 * ajoute un element en tete de Liste
 	 * @param s Element  ajouter en tete
 	 */
-	public void adjtlis(SousTitre s){
+	public void adjtlis(String s){
         int sto = this.retournerPlaceLibre();
 		this.tab[sto].setVal(s);
 		this.tab[sto].setSuc(this.tete);
@@ -39,7 +39,7 @@ public class ListeChainee implements Liste{
 	 * @param p place apres laquelle inserer
 	 * @param s element inserer
 	 */
-	public void adjlis(int p, SousTitre s){
+	public void adjlis(int p, String s){
 		int sto = this.retournerPlaceLibre(), suc = this.tab[p].getSuc();
 		this.tab[sto].setVal(s);
 		this.tab[sto].setSuc(suc);
@@ -81,7 +81,7 @@ public class ListeChainee implements Liste{
 	 * @param p place de la liste
 	 * @return la valeur associee  p
 	 */
-	public SousTitre val(int p){
+	public String val(int p){
         return this.tab[p].getVal();
     }
 
