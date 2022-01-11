@@ -48,7 +48,16 @@ public class ListeTriee{
 	 * @param chaine l'element que l'on recherche
 	 */
 	public boolean memlisT(String chaine){
-		throw (new Error("not implemented"));
+		boolean res = false;
+		int p=0;
+		while(!this.liste.finliste(p) && !res){
+			if(this.liste.val(p).compareToIgnoreCase(chaine) == 0){
+				res = true;
+			}else{
+				p++;
+			}
+		}
+		return res;
 	}
 
 	public String toString(){
