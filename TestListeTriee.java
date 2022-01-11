@@ -19,19 +19,18 @@ public class TestListeTriee {
 	}
 /** test du constructeur de liste triee
  */
-	public void test_01_constructeur(){
+	// public void test_01_constructeur(){
 
-		// creation d'une liste triee vide
+	// 	// creation d'une liste triee vide
 
-		ListeTriee lt = new ListeTriee(new Liste());
+	// 	ListeTriee lt = new ListeTriee(new ListeContigue(4));
 
-		//verification de la liste vide
+	// 	//verification de la liste vide
 
-		 int tete = lc.tete();
-		assertEquals("la liste devrait etre vide", true, lc.finliste(tete));
+	// 	int lt.liste.tete = lt.tete();
+	// 	assertEquals("la liste devrait etre vide", true, lt.finliste(tete));
 		
-		)
-	}
+	// }
 
 
 /** test de la methode adjlisT
@@ -39,14 +38,14 @@ public class TestListeTriee {
 	public void test_02_adjlisT(){
 		
 		// creation d'une liste triee
-		ListeTriee lt = new ListeTriee( new Liste());
+		ListeTriee lt = new ListeTriee(new ListeContigue(4));
 
 		// verification 
 
-		lt.adjlisT(eit);
-		lt.adjlisT(d);
-		lt.adjlisT(eia);
-		lt.adjlisT(a);
+		lt.adjlisT("eit");
+		lt.adjlisT("d");
+		lt.adjlisT("eia");
+		lt.adjlisT("a");
 		assertEquals("les elements doivent etre ajoutes et tries","a\nd\neia\neit", lt.toString());
 
 	}
