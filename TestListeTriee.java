@@ -24,6 +24,10 @@ public class TestListeTriee {
 		/** creation d'une liste triee vide
 		 */
 		ListeTriee lt = new ListeTriee();
+
+		/**verification de la liste vide
+		 */
+		 int tete = lc.tete();
 		assertEquals("la liste devrait etre vide", true, lc.finliste(tete));
 		
 		)
