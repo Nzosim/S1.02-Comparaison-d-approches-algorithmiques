@@ -31,7 +31,16 @@ public class ListeTriee{
 	 * @param chaine l'element a supprimer 
 	 */
 	public void suplisT(String chaine){
-		throw (new Error("not implemented"));
+		boolean find = false;
+		int p=0;
+		while(!this.liste.finliste(p) && !find){
+			if(this.liste.val(p).compareToIgnoreCase(chaine) == 0){
+				this.liste.suplis(p);;
+				find = true;
+			}else{
+				p++;
+			}
+		}
 	}
 	
 	/**
