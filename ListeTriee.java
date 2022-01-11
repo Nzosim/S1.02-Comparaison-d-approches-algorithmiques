@@ -16,7 +16,7 @@ public class ListeTriee{
 		boolean find = false;
 		int p=liste.tete(), prec = p;
 		while(!this.liste.finliste(p) && !find){
-			if(this.liste.val(p).compareToIgnoreCase(chaine) <0){
+			if(this.liste.val(p).compareTo(chaine) <0){
 				this.liste.adjlis(prec, chaine);
 				find = true;
 			}else{
@@ -34,7 +34,7 @@ public class ListeTriee{
 		boolean find = false;
 		int p=liste.tete();
 		while(!this.liste.finliste(p) && !find){
-			if(this.liste.val(p).compareToIgnoreCase(chaine) == 0){
+			if(this.liste.val(p).compareTo(chaine) == 0){
 				this.liste.suplis(p);;
 				find = true;
 			}else{
@@ -51,7 +51,7 @@ public class ListeTriee{
 		boolean res = false;
 		int p=liste.tete();
 		while(!this.liste.finliste(p) && !res){
-			if(this.liste.val(p).compareToIgnoreCase(chaine) == 0){
+			if(this.liste.val(p).compareTo(chaine) == 0){
 				res = true;
 			}else{
 				p = this.liste.suc(p);
