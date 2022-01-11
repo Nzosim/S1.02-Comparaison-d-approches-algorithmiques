@@ -47,7 +47,7 @@ public class TestListeTriee {
 		lt.adjlisT(d);
 		lt.adjlisT(eia);
 		lt.adjlisT(a);
-		assertEquals("les elements doivent etre ajoutes et tries",);
+		assertEquals("les elements doivent etre ajoutes et tries","a\nd\neia\neit", lt.toString());
 
 	}
 
