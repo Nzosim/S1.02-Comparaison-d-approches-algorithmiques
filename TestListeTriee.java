@@ -17,12 +17,16 @@ public class TestListeTriee {
 	public static void main(String[] args) {
 		lancer(new TestListeTriee(), args);
 	}
+/** test du constructeur de liste triee
+ */
+	public void test_01_constructeur(){
 
-	/** .... A COMPLETER ... **/
-	// ......................
-	// ......................
-	// ......................
-	// ......................
-	// ......................
+		/** creation d'une liste triee vide
+		 */
+		ListeTriee lt = new ListeTriee();
+		assertEquals("la liste devrait etre vide", true, lc.finliste(tete));
+		
+		)
+	}
 
 }
