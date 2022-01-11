@@ -12,8 +12,18 @@ public class ListeTriee{
 	 * ajoute un element au bon endroit dans la liste triee
 	 * @param chaine element a inserer
 	 */
-	public void adjlisT(String chaine){
-		throw (new Error("not implemented"));
+	public void adjlisT(String chaine){	
+		boolean find = false;
+		int p=0, prec = p;
+		while(!this.liste.finliste(p) && !find){
+			if(this.liste.val(p).compareToIgnoreCase(chaine) <0){
+				this.liste.adjlis(prec, chaine);
+				find = true;
+			}else{
+				prec = p;
+				p++;
+			}
+		}
 	}
 	
 	/**
