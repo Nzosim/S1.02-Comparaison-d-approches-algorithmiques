@@ -21,7 +21,7 @@ public class ListeTriee{
 				find = true;
 			}else{
 				prec = p;
-				p = liste.suc(p);
+				p = this.liste.suc(p);
 			}
 		}
 	}
@@ -38,7 +38,7 @@ public class ListeTriee{
 				this.liste.suplis(p);;
 				find = true;
 			}else{
-				p = liste.suc(p);
+				p = this.liste.suc(p);
 			}
 		}
 	}
@@ -54,14 +54,19 @@ public class ListeTriee{
 			if(this.liste.val(p).compareToIgnoreCase(chaine) == 0){
 				res = true;
 			}else{
-				p = liste.suc(p);
+				p = this.liste.suc(p);
 			}
 		}
 		return res;
 	}
 
 	public String toString(){
-		// TODO (utiliser les fonctions deja ecrites dans les listes !)
-		throw (new Error("not implemented"));
+		String res = "";
+		int p = this.liste.tete();
+		while(!this.liste.finliste(p)){
+			res += this.liste.val(p)+"\n";
+			p = this.liste.suc(p);
+		}
+		return res;
 	}
 }
