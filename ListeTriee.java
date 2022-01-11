@@ -1,7 +1,7 @@
 public class ListeTriee{
 
 	// Attribut de liste sous-jacente
-	private Liste liste; 
+	private Liste liste;
 	
 	public ListeTriee(Liste listevide){
 		// Affectation de la liste vide a l'attribut prive
@@ -16,12 +16,12 @@ public class ListeTriee{
 		boolean find = false;
 		int p=liste.tete(), prec = p;
 		while(!this.liste.finliste(p) && !find){
-			if(this.liste.val(p).compareToIgnoreCase(chaine) <0){
+			if(this.liste.val(p).compareTo(chaine) <0){
 				this.liste.adjlis(prec, chaine);
 				find = true;
 			}else{
 				prec = p;
-				p = liste.suc(p);
+				p = this.liste.suc(p);
 			}
 		}
 	}
@@ -34,11 +34,11 @@ public class ListeTriee{
 		boolean find = false;
 		int p=liste.tete();
 		while(!this.liste.finliste(p) && !find){
-			if(this.liste.val(p).compareToIgnoreCase(chaine) == 0){
+			if(this.liste.val(p).compareTo(chaine) == 0){
 				this.liste.suplis(p);;
 				find = true;
 			}else{
-				p = liste.suc(p);
+				p = this.liste.suc(p);
 			}
 		}
 	}
@@ -51,17 +51,22 @@ public class ListeTriee{
 		boolean res = false;
 		int p=liste.tete();
 		while(!this.liste.finliste(p) && !res){
-			if(this.liste.val(p).compareToIgnoreCase(chaine) == 0){
+			if(this.liste.val(p).compareTo(chaine) == 0){
 				res = true;
 			}else{
-				p = liste.suc(p);
+				p = this.liste.suc(p);
 			}
 		}
 		return res;
 	}
 
 	public String toString(){
-		// TODO (utiliser les fonctions deja ecrites dans les listes !)
-		throw (new Error("not implemented"));
+		String res = "";
+		int p = this.liste.tete();
+		while(!this.liste.finliste(p)){
+			res += this.liste.val(p)+"\n";
+			p = this.liste.suc(p);
+		}
+		return res;
 	}
 }
