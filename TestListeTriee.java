@@ -21,16 +21,34 @@ public class TestListeTriee {
  */
 	public void test_01_constructeur(){
 
-		/** creation d'une liste triee vide
-		 */
-		ListeTriee lt = new ListeTriee();
+		// creation d'une liste triee vide
 
-		/**verification de la liste vide
-		 */
+		ListeTriee lt = new ListeTriee(new Liste());
+
+		//verification de la liste vide
+
 		 int tete = lc.tete();
 		assertEquals("la liste devrait etre vide", true, lc.finliste(tete));
 		
 		)
+	}
+
+
+/** test de la methode adjlisT
+ */	
+	public void test_02_adjlisT(){
+		
+		// creation d'une liste triee
+		ListeTriee lt = new ListeTriee( new Liste());
+
+		// verification 
+
+		lt.adjlisT(eit);
+		lt.adjlisT(d);
+		lt.adjlisT(eia);
+		lt.adjlisT(a);
+		assertEquals("les elements doivent etre ajoutes et tries",);
+
 	}
 
 }
