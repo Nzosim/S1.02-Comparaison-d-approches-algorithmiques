@@ -16,13 +16,17 @@ public class ListeTriee{
 		boolean find = false;
 		int p=liste.tete(), prec = p;
 		while(!this.liste.finliste(p) && !find){
-			if(this.liste.val(p).compareTo(chaine) <0){
-				this.liste.adjlis(prec, chaine);
+			if(this.liste.val(p).compareTo(chaine) > 0){
 				find = true;
 			}else{
 				prec = p;
 				p = this.liste.suc(p);
 			}
+		}
+		if(p == this.liste.tete()){
+			this.liste.adjtlis(chaine);
+		}else{
+			this.liste.adjlis(prec, chaine);
 		}
 	}
 	
@@ -64,9 +68,10 @@ public class ListeTriee{
 		String res = "";
 		int p = this.liste.tete();
 		while(!this.liste.finliste(p)){
-			res += this.liste.val(p)+"\n";
+			res += this.liste.val(p)+" ";
 			p = this.liste.suc(p);
 		}
+		res = res.substring(0, res.length() - 1); // permet d'enlever le dernier espace de la chaine
 		return res;
 	}
 }

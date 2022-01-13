@@ -17,37 +17,58 @@ public class TestListeTriee {
 	public static void main(String[] args) {
 		lancer(new TestListeTriee(), args);
 	}
-/** test du constructeur de liste triee
- */
-	// public void test_01_constructeur(){
 
-	// 	// creation d'une liste triee vide
+	/** 
+	 * test de la methode adjlisT avec une liste contigue et une liste chainee
+	 */	
+	public void test_01_adjlisT(){
 
-	// 	ListeTriee lt = new ListeTriee(new ListeContigue(4));
+		// creation des liste triee
+		ListeTriee lco = new ListeTriee(new ListeContigue(4));
+		ListeTriee lch = new ListeTriee(new ListeContigue(4));
 
-	// 	//verification de la liste vide
+		// ajout des valeurs
+		lco.adjlisT("eit");
+		lco.adjlisT("d");
+		lco.adjlisT("eia");
+		lco.adjlisT("a");
 
-	// 	int lt.liste.tete = lt.tete();
-	// 	assertEquals("la liste devrait etre vide", true, lt.finliste(tete));
-		
-	// }
+		lch.adjlisT("eit");
+		lch.adjlisT("d");
+		lch.adjlisT("eia");
+		lch.adjlisT("a");
 
-
-/** test de la methode adjlisT
- */	
-	public void test_02_adjlisT(){
-		
-		// creation d'une liste triee
-		ListeTriee lt = new ListeTriee(new ListeContigue(4));
-
-		// verification 
-
-		lt.adjlisT("eit");
-		lt.adjlisT("d");
-		lt.adjlisT("eia");
-		lt.adjlisT("a");
-		assertEquals("les elements doivent etre ajoutes et tries","a\nd\neia\neit", lt.toString());
-
+		// vérifications
+		String attendu = "a d eia eit";
+		assertEquals("devrait rendre true", true, attendu.equals(lco.toString()));
+		assertEquals("devrait rendre true", true, attendu.equals(lch.toString()));
 	}
 
+	/** 
+	 * test de la methode adjlisT avec une liste contigue et une liste chainee
+	 */	
+	public void test_02_suplisT(){
+
+		// creation d'une liste triee
+		ListeTriee lco = new ListeTriee(new ListeContigue(4));
+		ListeTriee lch = new ListeTriee(new ListeContigue(4));
+
+		// ajout des valeurs
+		lco.adjlisT("eit");
+		lco.adjlisT("d");
+		lco.adjlisT("eia");
+		lco.adjlisT("a");
+
+		lch.adjlisT("eit");
+		lch.adjlisT("d");
+		lch.adjlisT("eia");
+		lch.adjlisT("a");
+
+		// vérifications
+		lco.suplisT("eit");
+		lch.suplisT("eit");
+		String attendu = "a d eit";
+		assertEquals("devrait rendre true", true, attendu.equals(lco.toString()));
+		assertEquals("devrait rendre true", true, attendu.equals(lco.toString()));
+	}
 }
