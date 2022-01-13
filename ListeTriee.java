@@ -36,17 +36,17 @@ public class ListeTriee{
 	 */
 	public void suplisT(String chaine){
 		boolean find = false;
-		int p=liste.tete();
+		int p = liste.tete();
 		while(!this.liste.finliste(p) && !find){
-			if(this.liste.val(p).compareTo(chaine) == 0){
-				this.liste.suplis(p);;
+			if(this.liste.val(p).equals(chaine)){
+				this.liste.suplis(p);
 				find = true;
 			}else{
 				p = this.liste.suc(p);
 			}
 		}
 	}
-	
+
 	/**
 	 * Retourne vrai si au moins un element de la liste a une valeur egale a "chaine", et retourne faux sinon.
 	 * @param chaine l'element que l'on recherche
@@ -71,7 +71,9 @@ public class ListeTriee{
 			res += this.liste.val(p)+" ";
 			p = this.liste.suc(p);
 		}
-		res = res.substring(0, res.length() - 1); // permet d'enlever le dernier espace de la chaine
+		if(this.liste.val(this.liste.tete()) != null){
+			res = res.substring(0, res.length() - 1); // permet d'enlever le dernier espace de la chaine
+		}
 		return res;
 	}
 }

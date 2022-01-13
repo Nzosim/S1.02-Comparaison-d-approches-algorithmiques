@@ -9,7 +9,7 @@ public class ListeContigue implements Liste{
     }
 
     public void suplis(int place){
-        for(int i = place; i<this.nbElements; i++){
+        for(int i = place; i<this.nbElements-1; i++){
             this.tab[i] = this.tab[i+1];
         }
         this.nbElements --;
