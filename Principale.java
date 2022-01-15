@@ -29,10 +29,10 @@ public class Principale{
 
 		// creation d'une liste triee avec les 10000 noms
 		Liste l = new ListeContigue(10000);
-		// ListeTriee liste = new ListeTriee(l);
-		// for (int i = 0 ; i < liste_noms.length ; i++){
-		// 	liste.adjlisT(liste_noms[i]);
-		// }
+		ListeTriee liste = new ListeTriee(l);
+		for (int i = 0 ; i < liste_noms.length ; i++){
+			liste.adjlisT(liste_noms[i]);
+		}
 
 
 
