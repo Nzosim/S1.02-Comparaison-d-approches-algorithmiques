@@ -7,8 +7,8 @@ public class CalculTime {
      * attribut motdebut et motfin 
      * mot à ajouter dans les listes
      */
-    String[] motdebut = {"AARAB", "ABAD" ,"ABADIE" ,"ABASSI", "ABBADI", "ABBAS", "ABBASSI", "ABBES" ,"ABBOU" ,"ABDALLAH"};
-    String[] motfin = {"ZIMMERMANN", "ZINCK" ,"ZINS" ,"ZITOUNI", "ZITTE" ,"ZOUAOUI", "ZOUARI", "ZOUBIR" ,"ZULIANI", "ZUNINO"};
+    String[] motdebut = new String[10];
+    String[] motfin = {"Z","Z","Z","Z","Z","Z","Z","Z","Z","Z"};
 
     /**
      * constructeur vide de la classe CalculTime
@@ -46,7 +46,7 @@ public class CalculTime {
                     l.suplisT(elem[j]);
                 }
             }else if(fonction == "sup"){
-                if(elem[i] == "AARAB"){
+                if(elem == motdebut){
                     for (int j = 0 ; j < nb ; j++){
                         l.adjlisT(motdebut[j]);
                     }
@@ -128,4 +128,22 @@ public class CalculTime {
         return "Pour rechercher "+nbrValeur+" mots"+endroit+" avec une liste de "+(taille-10)+" noms la liste la plus rapide est la liste "+inf;
     }
 
+    /**
+     * methode qui permet de trouver les 10 premiers mot de la liste en parametre pour les ajouter à l'attribut motdebut
+     * @param l liste dans laquel chercher
+     */
+    public void TrouverMotDebut(ListeTriee l){
+        String res="";
+		String mot=l.toString();
+		int i = 0;
+		for(int j = 0; j < 10; j++){
+			while(mot.charAt(i) != ' '){
+				res+= mot.charAt(i);
+				i++;
+			}
+			i++;
+			motdebut[j] = res;
+			res = "";
+		}
+    }
 }
