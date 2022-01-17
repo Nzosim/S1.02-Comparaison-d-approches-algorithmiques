@@ -85,9 +85,6 @@ public class ListeTriee{
 			res += this.liste.val(p)+" ";
 			p = this.liste.suc(p);
 		}
-		if(this.liste.val(this.liste.tete()) != null){
-			res = res.substring(0, res.length() - 1); // permet d'enlever le dernier espace de la chaine
-		}
 		return res;
 	}
 }

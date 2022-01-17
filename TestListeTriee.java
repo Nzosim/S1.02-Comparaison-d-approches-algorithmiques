@@ -39,7 +39,7 @@ public class TestListeTriee {
 		lch.adjlisT("a");
 
 		// vérifications
-		String attendu = "a d eia eit";
+		String attendu = "a d eia eit ";
 		assertEquals("devrait rendre true", true, attendu.equals(lco.toString()));
 		assertEquals("devrait rendre true", true, attendu.equals(lch.toString()));
 	}
@@ -67,7 +67,7 @@ public class TestListeTriee {
 		// vérifications
 		lco.suplisT("eit");
 		lch.suplisT("eit");
-		String attendu = "a d eia";
+		String attendu = "a d eia ";
 		assertEquals("devrait rendre true", true, attendu.equals(lco.toString()));
 		assertEquals("devrait rendre true", true, attendu.equals(lco.toString()));
 	}
@@ -95,7 +95,7 @@ public class TestListeTriee {
 		// vérifications
 		lco.suplisT("eiesqft");
 		lch.suplisT("eisefgt");
-		String attendu = "a d eia eit";
+		String attendu = "a d eia eit ";
 		assertEquals("devrait rendre true", true, attendu.equals(lco.toString()));
 		assertEquals("devrait rendre true", true, attendu.equals(lco.toString()));
 	}
@@ -174,7 +174,7 @@ public class TestListeTriee {
 		lch.adjlisT("a");
 
 		// vérifications
-		String attendu = "a d eia eit";
+		String attendu = "a d eia eit ";
 		String attenduListeVide = "";
 		assertEquals("devrait rendre true", true, attendu.equals(lco.toString()));
 		assertEquals("devrait rendre true", true, attendu.equals(lco.toString()));
