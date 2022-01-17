@@ -49,5 +49,6 @@ public class Principale{
 		 */
 		System.out.println("\n"+cT.TempsMem(10, listeContigue, listeChainee, true, nbrTest, taille));
 		System.out.println(cT.TempsMem(10, listeContigue, listeChainee, false, nbrTest, taille)+"\n");
+
 	}
 }
