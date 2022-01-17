@@ -1,15 +1,24 @@
+/**
+ * classe ListeTriee qui trie des liste chainee ou contigue
+ */
 public class ListeTriee{
 
-	// Attribut de liste sous-jacente
+	/**
+	 * attribut liste de type Liste de la classe ListeTriee
+	 */
 	private Liste liste;
 	
+	/**
+	 * constructeur de la classe ListeTriee
+	 * affeecte une liste libre a l'attribut liste
+	 * @param listevide une liste vide
+	 */
 	public ListeTriee(Liste listevide){
-		// Affectation de la liste vide a l'attribut prive
 		liste = listevide;
 	}
 	
 	/**
-	 * ajoute un element au bon endroit dans la liste triee
+	 * ajoute un element en parametre au bon endroit dans la liste triee
 	 * @param chaine element a inserer
 	 */
 	public void adjlisT(String chaine){	
@@ -31,7 +40,7 @@ public class ListeTriee{
 	}
 	
 	/**
-	 * permet de supprimer un element d'une liste. Supprime le premier element dont la valeur est egale a "chaine" ; ne fait rien si "chaine" n'appartient pas a la liste.
+	 * permet de supprimer un element d'une liste. Supprime le premier element dont la valeur est egale a "chaine" ou ne fait rien si "chaine" n'appartient pas a la liste.
 	 * @param chaine l'element a supprimer 
 	 */
 	public void suplisT(String chaine){
@@ -48,8 +57,9 @@ public class ListeTriee{
 	}
 
 	/**
-	 * Retourne vrai si au moins un element de la liste a une valeur egale a "chaine", et retourne faux sinon.
+	 * methode memlisT qui cherche si au moins un element de la liste a une valeur egale a "chaine"
 	 * @param chaine l'element que l'on recherche
+	 * @return booléen qui indique si oui ou non "chaine" est présent
 	 */
 	public boolean memlisT(String chaine){
 		boolean res = false;
@@ -64,6 +74,10 @@ public class ListeTriee{
 		return res;
 	}
 
+	/**
+	 * methode toString de la classe ListeTriee permet d'afficher la liste
+	 * @return la liste
+	 */
 	public String toString(){
 		String res = "";
 		int p = this.liste.tete();

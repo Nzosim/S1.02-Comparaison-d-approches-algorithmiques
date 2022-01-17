@@ -1,138 +1,53 @@
 /**
- * Classe principale de la SAE 1.02
- * @author Etienne Andre
- * @since 2021-11-04
- *
+ * classe Principale 
  */
-
-
 public class Principale{
-	
-	/**
-	 * Exemple d'utilisation de LectureFichier et remplissage d'une liste
-	 * @author Etienne Andre
-	 */
-	public static void remplir_liste(ListeTriee liste, String nom_fichier){
-		LectureFichier lf = new LectureFichier(nom_fichier);
-// 		
-		String[] liste_noms = lf.lireFichier();
-		for (String s : liste_noms) {
-			liste.adjlisT(s);
-		}
-	}
-	
 	public static void main(String [] args){
 
-		// lecture du fichier
-		LectureFichier lf = new LectureFichier("noms10000.txt");	
+		LectureFichier lf = new LectureFichier("noms10000.txt"); // fichier à lire
 		String[] liste_noms = lf.lireFichier();
 
-		// creation d'une liste triee avec les 10000 noms
-		Liste l = new ListeContigue(10000);
-		ListeTriee liste = new ListeTriee(l);
-		for (int i = 0 ; i < liste_noms.length ; i++){
-			liste.adjlisT(liste_noms[i]);
+		int taille = (args.length!=0 ? Integer.parseInt(args[0]) : 10000) + 10; // taille de la liste en fonction de args[0]
+
+		/**
+		 * creation d'une liste triee avec une chaine contigue et d'une liste triee avec une liste chainee
+		 * de la taile "taille"
+		 * */ 
+		Liste lCo = new ListeContigue(taille);
+		Liste lCh = new ListeContigue(taille);
+		ListeTriee listeContigue = new ListeTriee(lCo);
+		ListeTriee listeChainee = new ListeTriee(lCh);
+		for (int i = 0 ; i < Integer.parseInt(args[0]) ; i++){
+			listeContigue.adjlisT(liste_noms[i]);
+			listeChainee.adjlisT(liste_noms[i]);
 		}
-
-
-
-		// creation des elements 
+		
+		/**
+		 * element à ajouter en debut ou fin de liste
+		 */
 		String[] elemDebut = {"A", "AA", "AAA", "AAAA", "AAAAA", "AAAAAA", "AAAAAAA", "AAAAAAAA", "AAAAAAAAA", "AAAAAAAAAA"};
 		String[] elemFin = {"Z", "ZZ", "ZZZ", "ZZZZ", "ZZZZZ", "ZZZZZZ", "ZZZZZZZ", "ZZZZZZZZ", "ZZZZZZZZZ", "ZZZZZZZZZZ"};
 
-		// initialisation des listes
-		Liste listeContigueDebut = new ListeContigue(10010);
-		Liste listeContigueFin = new ListeContigue(10010);
-		Liste listeChaineeDebut = new ListeContigue(10010);
-		Liste listeChaineeFin = new ListeContigue(10010);
+		CalculTime cT = new CalculTime(); // creation de la classe calcul
 
-		// initialisation des listes triee
-		ListeTriee listeTrieeContigueDebut = new ListeTriee(listeContigueDebut);
-		ListeTriee listeTrieeContigueFin = new ListeTriee(listeContigueFin);
-		ListeTriee listeTrieeChaineeDebut = new ListeTriee(listeChaineeDebut);
-		ListeTriee listeTrieeChaineeFin = new ListeTriee(listeChaineeFin);
+		int nbrTest = args.length<2?100:Integer.parseInt(args[1]); // nombre de test pour calculer la moyenne
 
-		// ajout des 10000 noms dans les listes
-		for (int i = 0 ; i < liste_noms.length ; i++){
-			listeTrieeContigueDebut.adjlisT(liste_noms[i]);
-			listeTrieeContigueFin.adjlisT(liste_noms[i]);
-			listeTrieeChaineeDebut.adjlisT(liste_noms[i]);
-			listeTrieeChaineeFin.adjlisT(liste_noms[i]);
-		}
+		/**
+		 * test ajout de 10 noms en debut et fin de liste pour une liste contigue et une liste chainee 
+		 */
+		System.out.println("\n"+cT.TempsAjout(10, listeContigue, listeChainee, elemDebut, nbrTest, taille));
+		System.out.println(cT.TempsAjout(10, listeContigue, listeChainee, elemFin, nbrTest, taille));
 
-		// calcul du temps pour inserer 10 chaines de caracteres au debut d'une liste contigue de 10000 noms
-		long date_debut = System.nanoTime();
-		for (int i = 0 ; i < 10 ; i++){
-			listeTrieeContigueDebut.adjlisT(elemDebut[i]);
-		}
-		long date_fin = System.nanoTime();
-		long duree = date_fin-date_debut;
-		System.out.println("Temps ajout 10 chaines de caracteres au debut avec une liste contigue : "+duree+" nanosecondes");
+		/**
+		 * test suppression de 10 noms en debut et fin de liste pour une liste contigue et une liste chainee 
+		 */
+		System.out.println("\n"+cT.TempsSuppr(10, listeContigue, listeChainee, true, nbrTest, taille));
+		System.out.println(cT.TempsSuppr(10, listeContigue, listeChainee, false, nbrTest, taille));
 
-		// calcul du temps pour inserer 10 chaines de caracteres au debut d'une liste chainee de 10000 noms
-		date_debut = System.nanoTime();
-		for (int i = 0 ; i < 10 ; i++){
-			listeTrieeChaineeDebut.adjlisT(elemDebut[i]);
-		}
-		date_fin = System.nanoTime();
-		duree = date_fin-date_debut;
-		System.out.println("Temps ajout 10 chaines de caracteres au debut avec une liste chainee : "+duree+" nanosecondes");
-
-		// calcul du temps pour inserer 10 chaines de caracteres a la fin d'une liste contigue de 10000 noms
-		date_debut = System.nanoTime();
-		for (int i = 0 ; i < 10 ; i++){
-			listeTrieeContigueFin.adjlisT(elemFin[i]);
-		}
-		date_fin = System.nanoTime();
-		duree = date_fin-date_debut;
-		System.out.println("Temps ajout 10 chaines de caracteres a la fin avec une liste contigue : "+duree+" nanosecondes");
-
-		// calcul du temps pour inserer 10 chaines de caracteres a la fin d'une liste chainee de 10000 noms
-		date_debut = System.nanoTime();
-		for (int i = 0 ; i < 10 ; i++){
-			listeTrieeChaineeFin.adjlisT(elemFin[i]);
-		}
-		date_fin = System.nanoTime();
-		duree = date_fin-date_debut;
-		System.out.println("Temps ajout 10 chaines de caracteres a la fin avec une liste chainee : "+duree+" nanosecondes");
-
-
-
-
-		// calcul du temps pour supprimer 10 chaines de caracteres au debut d'une liste contigue de 10000 noms
-		date_debut = System.nanoTime();
-		for (int i = 0 ; i < 10 ; i++){
-			listeTrieeContigueDebut.suplisT(elemDebut[i]);
-		}
-		date_fin = System.nanoTime();
-		duree = date_fin-date_debut;
-		System.out.println("Temps suppression 10 chaines de caracteres au debut avec une liste contigue : "+duree+" nanosecondes");
-
-		// calcul du temps pour supprimer 10 chaines de caracteres au debut d'une liste chainee de 10000 noms
-		date_debut = System.nanoTime();
-		for (int i = 0 ; i < 10 ; i++){
-			listeTrieeChaineeDebut.suplisT(elemDebut[i]);
-		}
-		date_fin = System.nanoTime();
-		duree = date_fin-date_debut;
-		System.out.println("Temps suppression 10 chaines de caracteres au debut avec une liste chainee : "+duree+" nanosecondes");
-
-		// calcul du temps pour supprimer 10 chaines de caracteres a la fin d'une liste contigue de 10000 noms
-		date_debut = System.nanoTime();
-		for (int i = 9 ; i >= 0 ; i--){
-			listeTrieeContigueFin.suplisT(elemFin[i]);
-		}
-		date_fin = System.nanoTime();
-		duree = date_fin-date_debut;
-		System.out.println("Temps suppression 10 chaines de caracteres au debut avec une liste contigue : "+duree+" nanosecondes");
-
-		// calcul du temps pour supprimer 10 chaines de caracteres a la fin d'une liste chainee de 10000 noms
-		date_debut = System.nanoTime();
-		for (int i = 9 ; i >= 0 ; i--){
-			listeTrieeChaineeFin.suplisT(elemFin[i]);
-		}
-		date_fin = System.nanoTime();
-		duree = date_fin-date_debut;
-		System.out.println("Temps suppression 10 chaines de caracteres au debut avec une liste chainee : "+duree+" nanosecondes");
+		/**
+		 * test présence de 10 noms en debut et fin de liste pour une liste contigue et une liste chainee 
+		 */
+		System.out.println("\n"+cT.TempsMem(10, listeContigue, listeChainee, true, nbrTest, taille));
+		System.out.println(cT.TempsMem(10, listeContigue, listeChainee, false, nbrTest, taille)+"\n");
 	}
 }

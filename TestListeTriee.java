@@ -25,7 +25,7 @@ public class TestListeTriee {
 
 		// creation des liste triee
 		ListeTriee lco = new ListeTriee(new ListeContigue(4));
-		ListeTriee lch = new ListeTriee(new ListeContigue(4));
+		ListeTriee lch = new ListeTriee(new ListeChainee(4));
 
 		// ajout des valeurs
 		lco.adjlisT("eit");
@@ -51,7 +51,7 @@ public class TestListeTriee {
 
 		// creation d'une liste triee
 		ListeTriee lco = new ListeTriee(new ListeContigue(4));
-		ListeTriee lch = new ListeTriee(new ListeContigue(4));
+		ListeTriee lch = new ListeTriee(new ListeChainee(4));
 
 		// ajout des valeurs
 		lco.adjlisT("eit");
@@ -79,7 +79,7 @@ public class TestListeTriee {
 
 		// creation d'une liste triee
 		ListeTriee lco = new ListeTriee(new ListeContigue(4));
-		ListeTriee lch = new ListeTriee(new ListeContigue(4));
+		ListeTriee lch = new ListeTriee(new ListeChainee(4));
 
 		// ajout des valeurs
 		lco.adjlisT("eit");
@@ -107,7 +107,7 @@ public class TestListeTriee {
 
 		// creation d'une liste triee
 		ListeTriee lco = new ListeTriee(new ListeContigue(4));
-		ListeTriee lch = new ListeTriee(new ListeContigue(4));
+		ListeTriee lch = new ListeTriee(new ListeChainee(4));
 
 		// vérifications
 		lco.suplisT("a");
@@ -124,7 +124,7 @@ public class TestListeTriee {
 
 		// creation d'une liste triee
 		ListeTriee lco = new ListeTriee(new ListeContigue(4));
-		ListeTriee lch = new ListeTriee(new ListeContigue(4));
+		ListeTriee lch = new ListeTriee(new ListeChainee(4));
 
 		// ajout des valeurs
 		lco.adjlisT("eit");
@@ -144,7 +144,7 @@ public class TestListeTriee {
 
 		// creation d'une liste triee
 		ListeTriee lco = new ListeTriee(new ListeContigue(4));
-		ListeTriee lch = new ListeTriee(new ListeContigue(4));
+		ListeTriee lch = new ListeTriee(new ListeChainee(4));
 
 		// vérifications	
 		assertEquals("devrait rendre true", false, lco.memlisT("e"));
@@ -158,9 +158,9 @@ public class TestListeTriee {
 
 		// creation d'une liste triee
 		ListeTriee lco = new ListeTriee(new ListeContigue(4));
-		ListeTriee lch = new ListeTriee(new ListeContigue(4));
+		ListeTriee lch = new ListeTriee(new ListeChainee(4));
 		ListeTriee lcoVide = new ListeTriee(new ListeContigue(4));
-		ListeTriee lchVide = new ListeTriee(new ListeContigue(4));
+		ListeTriee lchVide = new ListeTriee(new ListeChainee(4));
 
 		// ajout des valeurs
 		lco.adjlisT("eit");
