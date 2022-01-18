@@ -140,7 +140,7 @@ public class TestListeTriee {
 	/** 
 	 * test de la methode memlisT avec une liste contigue et une liste chainee vide
 	 */	
-	public void test_05_memlisT_listeVide(){
+	public void test_06_memlisT_listeVide(){
 
 		// creation d'une liste triee
 		ListeTriee lco = new ListeTriee(new ListeContigue(4));
@@ -154,7 +154,7 @@ public class TestListeTriee {
 	/** 
 	 * test de la methode toString avec une liste contigue et une liste chainee et avec des listes vide
 	 */	
-	public void test_06_toString(){
+	public void test_07_toString(){
 
 		// creation d'une liste triee
 		ListeTriee lco = new ListeTriee(new ListeContigue(4));

@@ -140,7 +140,7 @@ public class CalculTime {
      */
     public void TrouverMotDebut(ListeTriee l){
         String res="";
-		String mot=l.toString();
+		String mot=l.toString(); // liste de mot
 		int i = 0;
 		for(int j = 0; j < 10; j++){
 			while(mot.charAt(i) != ' '){
