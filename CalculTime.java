@@ -77,9 +77,11 @@ public class CalculTime {
         long dureeListeChainee = this.calcul(lh, elem, nbrValeur, "adj", nb);
 
         String inf = dureeListeContigue < dureeListeChainee ? "contigue" : "chainee";
+        long temps = dureeListeContigue < dureeListeChainee ? dureeListeContigue : dureeListeChainee;
         String endroit = elem[0] == "A" ? "debut" : "fin";
 
-        return "Pour "+nbrValeur+" ajout en "+endroit+" avec une liste de "+(taille-10)+" noms la liste la plus rapide est la liste "+inf;
+        return "Pour "+nbrValeur+" ajout en "+endroit+" avec une liste de "+(taille-10)+" noms la liste la plus rapide est la liste "
+            +inf+" avec un temps de : "+temps+" ns";
     }
 
     /**
@@ -100,9 +102,11 @@ public class CalculTime {
         long dureeListeChainee = this.calcul(lh, utilise, nbrValeur, "sup", nb);
 
         String inf = dureeListeContigue < dureeListeChainee ? "contigue" : "chainee";
+        long temps = dureeListeContigue < dureeListeChainee ? dureeListeContigue : dureeListeChainee;
         String endroit = debut ? "debut" : "fin";
 
-        return "Pour "+nbrValeur+" suppression en "+endroit+" avec une liste de "+(taille-10)+" noms la liste la plus rapide est la liste "+inf;
+        return "Pour "+nbrValeur+" suppression en "+endroit+" avec une liste de "+(taille-10)+" noms la liste la plus rapide est la liste "
+            +inf+" avec un temps de : "+temps+" ns";
     }
 
     /**
@@ -123,9 +127,11 @@ public class CalculTime {
         long dureeListeChainee = this.calcul(lh, utilise, nbrValeur, "mem", nb);
 
         String inf = dureeListeContigue < dureeListeChainee ? "contigue" : "chainee";
+        long temps = dureeListeContigue < dureeListeChainee ? dureeListeContigue : dureeListeChainee;
         String endroit = debut ? " au debut" : " a la fin";
 
-        return "Pour rechercher "+nbrValeur+" mots"+endroit+" avec une liste de "+(taille-10)+" noms la liste la plus rapide est la liste "+inf;
+        return "Pour rechercher "+nbrValeur+" mots"+endroit+" avec une liste de "+(taille-10)+" noms la liste la plus rapide est la liste "
+            +inf+" avec un temps de : "+temps+" ns";
     }
 
     /**
