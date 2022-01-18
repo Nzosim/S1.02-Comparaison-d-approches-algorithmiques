@@ -142,8 +142,8 @@ public class CalculTime {
         String res="";
 		String mot=l.toString(); // liste de mot
 		int i = 0;
-		for(int j = 0; j < 10; j++){
-			while(mot.charAt(i) != ' '){
+		for(int j = 0; j < 10; j++){ // boucle pour trouver les 10 premiers mots
+			while(mot.charAt(i) != ' '){ // ajoute les lettres à res tant que la caractère est different de ' '
 				res+= mot.charAt(i);
 				i++;
 			}
